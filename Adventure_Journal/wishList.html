@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Wish List</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+  <body>
+    <!-- page content -->
+    <!-- Nav bar -->
+    <ul>
+      <li><a class="active" href="home.html" data-toggle="tooltip" title="View all trips currently in your Adventure Journal. You can also edit & delete previous entries here">Home</a></li>
+      <li><a href="addToJournal.html" data-toggle="tooltip" title="Add new entries to your Adventure Journal">Add</a></li>
+      <li><a href="search.html" data-toggle="tooltip" title="Search your Adventure Journal by location">Search</a></li>
+      <li><a href="wishList.html" data-toggle="tool-tip" title="View all locations on your wish list and add to it here">Wish list</a></li>
+      <!-- *** UPDATE href below to log user out -->
+      <li><a href="" data-toggle="tool-tip" title="Click here to log out">Logout</a></li>
+    </ul>
+    
+    <!-- section to display current trips in users wish list -->
+    <div>
+        <br>
+        <h1>Welcome to your Wish List</h1>
+        <h4>All trips currently on your wish list are displayed below:</h4>
+        <br>
+        <!-- Table to display all trips currently on users wish list -->
+        <!-- *** FAKE DATA CURRENTLY *** -->
+        <table>
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Brief description of the location</th>
+            <th>Picture</th>
+          </tr>
+        <tbody>
+            <td>Rome</td>
+            <td>Rome is the capital city of Italy. It is also the capital of the Lazio region, the centre of the Metropolitan City of Rome, and a special comune named Comune di Roma Capitale. With 2,860,009 residents in 1,285 km2 (496.1 sq mi), Rome is the country's most populated comune and the third most populous city in the European Union by population within city limits. The Metropolitan City of Rome, with a population of 4,355,725 residents, is the most populous metropolitan city in Italy. Its metropolitan area is the third-most populous within Italy. Rome is located in the central-western portion of the Italian Peninsula, within Lazio (Latium), along the shores of the Tiber. Vatican City (the smallest country in the world) is an independent country inside the city boundaries of Rome, the only existing example of a country within a city; for this reason, Rome has sometimes been described as the capital of two states.[5][6] Rome is often referred to as the City of Seven Hills due to its geographic location and also the "Eternal City."</td>
+            <td></td>
+          </tr>
+            <tr>
+            <td>Ireland</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <br><br>
+        <br>
+        <p>Want to add more places to your wish list?<br>Click the button below:</p>
+        <form action="addToWishlist.html" method="post">
+           <a href=""><input type="submit" value="Add to wish list"/>
+        </form>
+    
+    
+    
+    </div>
+            
+    
+     
+     
+     
+     
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+    
+  </body>
+</html>
