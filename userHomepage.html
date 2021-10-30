@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>User Homepage</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+  <body>
+    <!-- page content -->
+    <!-- Nav bar -->
+    <ul>
+      <li><a class="active" href="home.html" data-toggle="tooltip" title="View all trips currently in your Adventure Journal. You can also edit & delete previous entries here">Home</a></li>
+      <li><a href="addToJournal.html" data-toggle="tooltip" title="Add new entries to your Adventure Journal">Add</a></li>
+      <li><a href="search.html" data-toggle="tooltip" title="Search your Adventure Journal by location">Search</a></li>
+      <li><a href="wishList.html" data-toggle="tool-tip" title="View all locations on your wish list and add to it here">Wish list</a></li>
+      <!-- *** UPDATE href below to log user out -->
+      <li><a href="" data-toggle="tool-tip" title="Click here to log out">Logout</a></li>
+    </ul>
+    
+    <!-- section to display current trips in users Adventure Journal -->
+    <div>
+        <br>
+        <h1>Welcome to your Adventure Journal</h1>
+        <h4>All trips currently in your journal are displayed below:</h4>
+        <br>
+        <!-- Table to display all trips currently in DB -->
+        <!-- *** FAKE DATA CURRENTLY *** -->
+        <table>
+        <thead>
+          <tr>
+            <th>Dates</th>
+            <th>Location</th>
+            <th>Travel Buddies</th>
+            <th>Click button for pictures</th>
+            <th>Click button to edit trip</th>
+            <th>Click button to delete trip</th>
+          </tr>
+        <tbody>
+            <td>June 3, 2018 - June 4, 2018</td>
+            <td>Seattle</td>
+            <td>Sean</td>
+            <td><a href=""><input type="button" value="pictures"/></a></td>
+            <td><a href=""><input type="button" value="edit"/></a></td>
+            <td><a href=""><input type="button" value="delete"/></a></td>
+          </tr>
+            <tr>
+            <td>June 5, 2018 - June 10, 2018</td>
+            <td>Alaska</td>
+            <td>Sean</td>
+            <td><a href=""><input type="button" value="pictures"/></a></td>
+            <td><a href=""><input type="button" value="edit"/></a></td>
+            <td><a href=""><input type="button" value="delete"/></a></td>
+          </tr>
+       
+        </table>
+     
+     
+     
+     
+    </div>
+            
+    
+     
+     
+     
+     
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+    
+  </body>
+</html>
