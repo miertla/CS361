@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Search Page</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+  <body>
+    <!-- page content -->
+    <!-- Nav bar -->
+    <ul>
+      <li><a class="active" href="home.html" data-toggle="tooltip" title="View all trips currently in your Adventure Journal. You can also edit & delete previous entries here">Home</a></li>
+      <li><a href="addToJournal.html" data-toggle="tooltip" title="Add new entries to your Adventure Journal">Add</a></li>
+      <li><a href="search.html" data-toggle="tooltip" title="Search your Adventure Journal by location">Search</a></li>
+      <li><a href="wishList.html" data-toggle="tool-tip" title="View all locations on your wish list and add to it here">Wish list</a></li>
+      <!-- *** UPDATE href below to log user out -->
+      <li><a href="" data-toggle="tool-tip" title="Click here to log out">Logout</a></li>
+    </ul>
+    
+    <!-- section to explain to user how to use this web page -->
+    <div>
+        <h1>Welcome to the search page</h1>
+        <h3>This page allows you to type in a location and search to see if<br> this location is already in your adventure journal.<br><br>Type in the location you would like to search for below:</h3>
+        <!-- text boxes for location -->
+        <!-- *** UPDATE ACTION -->
+        <form action="" method="get">
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location"><br><br>
+          <input type="submit" value="Search">
+        </form>
+    </div>
+            
+    
+     
+     
+     
+     
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+    
+  </body>
+</html>
+
 
