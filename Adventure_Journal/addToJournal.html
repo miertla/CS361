@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Add to Adventure Journal</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+  <body>
+    <!-- page content -->
+    <!-- Nav bar -->
+    <ul>
+      <li><a class="active" href="home.html" data-toggle="tooltip" title="View all trips currently in your Adventure Journal. You can also edit & delete previous entries here">Home</a></li>
+      <li><a href="addToJournal.html" data-toggle="tooltip" title="Add new entries to your Adventure Journal">Add</a></li>
+      <li><a href="search.html" data-toggle="tooltip" title="Search your Adventure Journal by location">Search</a></li>
+      <li><a href="wishList.html" data-toggle="tool-tip" title="View all locations on your wish list and add to it here">Wish list</a></li>
+      <!-- *** UPDATE href below to log user out -->
+      <li><a href="" data-toggle="tool-tip" title="Click here to log out">Logout</a></li>
+    </ul>
+    
+    <!-- section to explain to user how to add a trip to their journal -->
+    <div>
+        <br><br>
+        <h2>This page allows you to add a previous trip you have taken to your Adventure Journal.</h2>
+        <h3>Please complete all of the fields below (pictures are optional):</h3>
+        <br><br>
+        <!-- form to add a trip -->
+        <!-- *** UPDATE ACTION -->
+        <form action="" method="post">
+          <label for="location">Location of trip:</label>
+          <input type="text" id="location" name="location"><br><br>
+          <label for="startDate">Start date of trip:</label>
+          <input type="date" id="startDate" name="startDate"><br><br>
+          <label for="endDate">End date of trip:</label>
+          <input type="date" id="endDate" name="endDate"><br><br>
+          <label for="travbuddies">Travel buddies (who went on this trip with you):</label>
+          <input type="text" id="travbuddies" name="travbuddies"><br><br>
+          <label for"pictures">Click to upload pictures from your trip:</label>
+          <input type="file" id="pictures" name = "pictures"><br><br>
+         
+          <input type="submit" value="Add trip">
+        </form>
+    </div>
+            
+    
+     
+     
+     
+     
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+    
+  </body>
+</html>
+
 
