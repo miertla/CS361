@@ -1,28 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Edit Trip</title>
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" />
     </head>
   <body>
-    <!-- page content -->
     <!-- Nav bar -->
-    <ul>
-      <li><a class="active" href="home.html" data-toggle="tooltip" title="View all trips currently in your Adventure Journal. You can also edit & delete previous entries here">Home</a></li>
-      <li><a href="addToJournal.html" data-toggle="tooltip" title="Add new entries to your Adventure Journal">Add</a></li>
-      <li><a href="search.html" data-toggle="tooltip" title="Search your Adventure Journal by location">Search</a></li>
-      <li><a href="wishList.html" data-toggle="tool-tip" title="View all locations on your wish list and add to it here">Wish list</a></li>
-      <!-- *** UPDATE href below to log user out -->
-      <li><a href="" data-toggle="tool-tip" title="Click here to log out">Logout</a></li>
-    </ul>
+    <%- include ("../partials/navbar.ejs") %>
     
+    <!-- page content -->
     <!-- section to explain to user how to edit a trip to their journal -->
     <div>
         <br><br>
         <h2>This page allows you to edit a previous trip alread in your Adventure Journal</h2>
-        <h3>To ensure all updates are saved, please click the save button after all edit have been completed</h3>
+        <h4>To ensure all updates are saved, please click the save button after all edits have been completed</h4>
         <br><br>
         <!-- form to edit a trip -->
         <!-- *** UPDATE ACTION -->
@@ -37,7 +29,6 @@
           <input type="text" id="travbuddies" name="travbuddies"><br><br>
           <label for"pictures">Click to upload more pictures from your trip:</label>
           <input type="file" id="pictures" name = "pictures"><br><br>
-         
           <input type="submit" value="Save">
         </form>
     </div>

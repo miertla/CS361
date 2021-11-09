@@ -3,37 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title>Adventure Journal Homepage</title>
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" />
     </head>
   <body>
-    <!-- page content -->
     <!-- Nav bar -->
-    <ul>
-      <li><a class="active" href="home.html" data-toggle="tooltip" title="View all trips currently in your Adventure Journal. You can also edit & delete previous entries here">Home</a></li>
-      <li><a href="addToJournal.html" data-toggle="tooltip" title="Add new entries to your Adventure Journal">Add</a></li>
-      <li><a href="search.html" data-toggle="tooltip" title="Search your Adventure Journal by location">Search</a></li>
-      <li><a href="wishList.html" data-toggle="tool-tip" title="View all locations on your wish list and add to it here">Wish list</a></li>
-      <!-- *** UPDATE href below to log user out -->
-      <li><a href="" data-toggle="tool-tip" title="Click here to log out">Logout</a></li>
-    </ul>
-    
+    <%- include ("../partials/navbar.ejs") %>
+
+    <!-- page content -->
     <!-- section to welcome user to web app and provide brief description -->
     <div>
         <h1>Welcome to your Adventure Journal</h1>
         <h3>Adventure awaits! Create a profile to start your personalized adventure <br> journal to keep track of previous trips and to plan new ones.</h3>
         <h3>Already have a profile? Log in below:</h3>
         <!-- text boxes for username and password -->
-        <!-- *** UPDATE ACTION -->
-        <form action="" method="post">
-          <label for="username">Username:</label>
+        <!-- *** UPDATE ACTION & METHOD TO POST -->
+        <form action="/userHomepage" method="">
+          <label for="username">Username:*</label>
           <input type="text" id="username" name="username"><br><br>
-          <label for="pword">Password:</label>
+          <label for="pword">Password:*</label>
           <input type="password" id="pword" name="pword" minlength="8"><br><br>
           <input type="submit" value="Log in">
         </form>
         <h3>New user? Click the button below to create a profile</h3>
         <!-- button will direct user to create profile page -->
-        <a href="createProfile.html">
+        <a href="/createProfile">
             <input type="submit" value="Create new profile"/>
         </a>
     </div>
