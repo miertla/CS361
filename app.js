@@ -36,7 +36,7 @@ express()
     
 .get('/wishList', async (req, res) => {
     try {
-      const client = await pool.connect();
+      const client = await Client.connect();
       const result = await client.query('SELECT * FROM wish_list');
       const results = { 'results': (result) ? result.rows : null};
         res.render('pages/wishList', { wishListLocations : results });
