@@ -2,16 +2,17 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
-const client = new Client({
+const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
 });
 
-client.connect();
+
+ client.connect();
 
 client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
   if (err) throw err;
@@ -20,6 +21,7 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
   }
   client.end();
 });
+
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -36,7 +38,7 @@ express()
     
 .get('/wishList', async (req, res) => {
     try {
-      const client = await Client.connect();
+      const client = await pool.connect();
       const result = await client.query('SELECT * FROM wish_list');
       const results = { 'results': (result) ? result.rows : null};
         res.render('pages/wishList', { wishListLocations : results });
