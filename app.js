@@ -27,24 +27,27 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/home'))
   .get('/userHomepage', (req, res) => res.render('pages/userHomepage'))
-  .get('/wishList', (req, res) => res.render('pages/wishList'))
+//  .get('/wishList', (req, res) => res.render('pages/wishList'))
   .get('/addToJournal', (req, res) => res.render('pages/addToJournal'))
   .get('/addToWishList', (req, res) => res.render('pages/addToWishList'))
   .get('/createProfile', (req, res) => res.render('pages/createProfile'))
   .get('/editTrip', (req, res) => res.render('pages/editTrip'))
   .get('/search', (req, res) => res.render('pages/search'))
     
-.get('/db', async (req, res) => {
+.get('/wishList', async (req, res) => {
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM wish_list');
       const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/wishList', results );
+        res.render('pages/wishList', { wishListLocations : results });
       client.release();
     } catch (err) {
       console.error(err);
       res.send("Error " + err);
     }
   })
+
+
+
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
