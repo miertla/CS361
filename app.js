@@ -1,9 +1,9 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
 const { Pool } = require('pg');
-
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -11,19 +11,7 @@ const pool = new Pool({
   }
 });
 
-
-const { Client } = require('pg');
-
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
-
-client.connect();
-
-
+/*
 client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
@@ -31,21 +19,24 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
   }
   client.end();
 });
-
+*/
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
+  .use(bodyParser.urlencoded({ extended: false }))
+  .use(bodyParser.json())
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/home'))
   .get('/userHomepage', (req, res) => res.render('pages/userHomepage'))
-//  .get('/wishList', (req, res) => res.render('pages/wishList'))
+  .get('/wishList', (req, res) => res.render('pages/wishList'))
   .get('/addToJournal', (req, res) => res.render('pages/addToJournal'))
   .get('/addToWishList', (req, res) => res.render('pages/addToWishList'))
   .get('/createProfile', (req, res) => res.render('pages/createProfile'))
   .get('/editTrip', (req, res) => res.render('pages/editTrip'))
   .get('/search', (req, res) => res.render('pages/search'))
-    
+   
+/*
 .get('/wishList', async (req, res) => {
     try {
       const client = await pool.connect();
@@ -58,7 +49,7 @@ express()
       res.send("Error " + err);
     }
   })
-
+*/
 
 
 

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Wish List</title>
+    <script src="wishList.js"></script>
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" />
     </head>
   <body>
@@ -11,13 +12,12 @@
     
     <!-- page content -->
     <!-- section to display current trips in users wish list from table in DB -->
-    <div>
+    <div class="container">
         <br>
         <h1>Welcome to your Wish List</h1>
         <h4>All trips currently on your wish list are displayed below:</h4>
         <br>
         <!-- Table to display all trips currently on users wish list -->
-        <!-- *** FAKE DATA CURRENTLY *** -->
         <table id="table">
           <thead>
             <tr>
@@ -31,7 +31,12 @@
             <tr class="list-group-item">
                 <td><%= wishListLocations.rows[i].location %>
                 <td><%= wishListLocations.rows[i].text_description %>
-            <% } %>
+            <% }; %>
+            
+            <!-- example:
+            <% results.forEach(function(r) { %>
+            <li><%= r.id %> - <%= r.name %></li>
+            <% }); %>           -->
         
         </table>
         <br><br>
