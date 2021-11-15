@@ -2,46 +2,53 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <%= require ("/javascripts/wishList.js") =%>
     <title>Wish List</title>
-    <script src="wishList.js"></script>
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" />
     </head>
   <body>
-    <!-- Nav bar -->
+    <%# Nav bar %>
     <%- include ("../partials/navbar.ejs") %>
     
-    <!-- page content -->
-    <!-- section to display current trips in users wish list from table in DB -->
+    <%# page content %>
+    <%# section to display current trips in users wish list from table in DB %>
     <div class="container">
         <br>
         <h1>Welcome to your Wish List</h1>
         <h4>All trips currently on your wish list are displayed below:</h4>
         <br>
-        <!-- Table to display all trips currently on users wish list -->
+        <%# Table to display all trips currently on users wish list %>
         <table id="table">
           <thead>
             <tr>
               <th>Location</th>
               <th>Brief description</th>
-        <!-- *** ADD PIC     <th>Picture</th> -->
+        <%# *** ADD PIC     <th>Picture</th> %>
           </tr>
           </thead>
         <tbody>
-        <% for(var i = 0; i < wishListLocations.rows.length; i++) { %>
-            <tr class="list-group-item">
-                <td><%= wishListLocations.rows[i].location %>
-                <td><%= wishListLocations.rows[i].text_description %>
-            <% }; %>
-            
-            <!-- example:
-            <% results.forEach(function(r) { %>
-            <li><%= r.id %> - <%= r.name %></li>
-            <% }); %>           -->
-        
+        <% if (results.length > 0) { %>
+            <tr class="wish-list-table">
+                <% results.forEach(function(wish_list)) { %>
+                    <tr>
+                      <td><%= wish_list.location %></td>
+                      <td><%= wish_list.text_description %></td>
+                    </tr>
+                <% } %>
         </table>
+        <% } else { %>
+                <h3>No locations in wish list yet</h3>
+        <% } %>
+           
+           
+           
+        
+        
+        
+        
         <br><br>
         <br>
-        <!-- *** EDIT - move to nav bar ***" -->
+        <%# *** EDIT - move to nav bar ***" %>
         <p color: white>Want to add more places to your wish list?<br>Click the button below:</p>
         <a href="/addToWishList"><input type="submit" value="Add to wish list"/>
     
@@ -59,6 +66,8 @@ $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
+
+<script type="text/javascript" src="/javascripts/wishList.js"></script>
     
   </body>
 </html>
