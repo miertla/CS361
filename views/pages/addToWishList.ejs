@@ -18,10 +18,10 @@
         <h4>You can enter a city, town, state, country, or any place you would like to visit:</h4>
         <br>
         <!-- *** UPDATE ACTION & METHOD TO POST *** -->
-        <form action="http://127.0.0.1:5000/wikiScraper/+"location"/overview" method="get">
+        <form action="http://127.0.0.1:5000/wikiScraper/"+"id=location"+"/Recreation" method="get">
           <label for="location">Location:</label>
           <input type="text" id="location" name="location"><br><br>
-          <a href ="/wishList" type="submit" value="Add">
+            <input type="submit" value="Add">
         </form>
     </div>
             
@@ -35,7 +35,7 @@ $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
-   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
    <script type="text/javascript" src="/javascripts/addToWishList.js"></script>
    
   </body>
