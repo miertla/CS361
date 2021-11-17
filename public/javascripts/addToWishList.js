@@ -7,9 +7,9 @@ module.exports = function(){
     router.post('/', function(req, res){
         console.log(req.body)
 	/*** EDIT/FIX ***/
-        var query-string = `INSERT INTO wish_list(location, text_descrition) VALUES (?,?)`;
+        var queryString = `INSERT INTO wish_list(location, text_descrition) VALUES (?,?)`;
         var inserts = [req.body.location, req.body.paragraph1];
-        pool.query(query-string, (error, results, fields) => {
+        pool.query(queryString, (error, results, fields) => {
             if(error){
                 console.log(JSON.stringify(error))
                 res.write(JSON.stringify(error));

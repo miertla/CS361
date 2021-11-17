@@ -2,14 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <%= require ("/javascripts/wishList.js") =%>
     <title>Wish List</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" />
     </head>
   <body>
-    <%# Nav bar %>
+    <!-- Nav bar -->
     <%- include ("../partials/navbar.ejs") %>
-    
+
     <%# page content %>
     <%# section to display current trips in users wish list from table in DB %>
     <div class="container">
@@ -27,31 +26,31 @@
           </tr>
           </thead>
         <tbody>
+        
+        
+        
+        
+        
+        
+<% /* %>
+START COMMENT - FIX CODE BELOW:
         <% if (results.length > 0) { %>
             <tr class="wish-list-table">
                 <% results.forEach(function(wish_list)) { %>
-                    <tr>
                       <td><%= wish_list.location %></td>
-                      <td><%= wish_list.text_description %></td>
+                      <td><%= wish_list.paragraph1 %></td>
                     </tr>
                 <% } %>
         </table>
         <% } else { %>
                 <h3>No locations in wish list yet</h3>
-        <% } %>
-           
-           
-           
-        
-        
-        
+            <% }; %>
+END COMMENT
+<% */ %>
         
         <br><br>
         <br>
-        <%# *** EDIT - move to nav bar ***" %>
-        <p color: white>Want to add more places to your wish list?<br>Click the button below:</p>
-        <a href="/addToWishList"><input type="submit" value="Add to wish list"/>
-    
+ 
     
     
     </div>
@@ -61,13 +60,6 @@
      
      
      
-<script>
-$(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();
-});
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript" src="/javascripts/wishList.js"></script>
     
   </body>
 </html>
