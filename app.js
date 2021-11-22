@@ -1,7 +1,15 @@
+require('dotenv').config()
+
 const express = require('express')
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const path = require('path')
+
+const server = express()
 const PORT = process.env.PORT || 4000
+
+server.use(cors())
+server.use(express.json())
 
 const { Pool } = require('pg');
 
