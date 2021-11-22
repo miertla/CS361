@@ -5,12 +5,16 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const path = require('path')
 
+const testRouter = require('./route')
+
 const server = express()
 const PORT = process.env.PORT || 4000
 
 server.use(cors())
 server.use(express.json())
+server.use('/test', testRouter)
 
+/*
 const { Pool } = require('pg');
 
 var prodClient = new Pool({
@@ -20,16 +24,6 @@ var prodClient = new Pool({
 db = prodClient;
 
 db.connect();
-
-
-/*
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
-});
 */
 
 express()
@@ -59,4 +53,10 @@ express()
   })
 */
 
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+server.get('/', (req, res) => {
+  res.send('<h1>This is a test application</h1>')
+})
+
+server.listen(PORT, () => {
+    console.log(`Listening on ${ PORT }`)
+  })
