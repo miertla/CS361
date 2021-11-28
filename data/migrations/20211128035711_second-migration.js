@@ -42,3 +42,4 @@ exports.down = (knex) => {
 		.dropTableIfExists('wishList');
 
 };
+
