@@ -1,15 +1,15 @@
-const profiles = [
+const trips = [
   {
-    firstName: 'John', lastName: 'Smith', email: 'testemail@gmail.com', username: 'JohnS13', password: 'testpword1234'
+    authorId: 1, location: 'Alaska', startDate: '2018-06-02', endDate: '2018-06-09', travelBuddies: 'Sean'
   },
   {
-    firstName: 'Sara', lastName: 'Young', email: 'syoung@gmail.com', username: 'Syoung', password: 'testpword2021'
-  }  
+    authorId: 2, location: 'San Diego, California', startDate: '2021-09-30', endDate: '2021-10-03', travelBuddies: 'Jamie, Laurie, and Sean'
+  }
 ];
 
-exports.seed = function (knex) {
-  return knex('profiles').del()
+exports.seed = function (knex, Promise) {
+  return knex('trips').del()
   .then(() => {
-    return knex('profiles').insert(profiles)
+    return knex('trips').insert(trips)
   })
 };

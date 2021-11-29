@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 
 const testRouter = require('./route')
+const createProf = require('./route')
 
 const server = express()
 const PORT = process.env.PORT || 4000
@@ -13,45 +14,24 @@ const PORT = process.env.PORT || 4000
 server.use(cors())
 server.use(express.json())
 server.use('/test', testRouter)
+server.use('/createProfile', createProf)
 
-/*
-const { Pool } = require('pg');
 
-var prodClient = new Pool({
-  // production connection string:
-  connectionString: process.env.DATABASE_URL
-});
-db = prodClient;
 
-db.connect();
-*/
+server.use(express.static(path.join(__dirname, 'public')))
+server.use(bodyParser.urlencoded({ extended: true }))
+server.use(bodyParser.json())
+server.set('views', path.join(__dirname, 'views'))
+server.set('view engine', 'ejs')
+server.get('/', (req, res) => res.render('pages/home'))
+server.get('/userHomepage', (req, res) => res.render('pages/userHomepage'))
+server.get('/wishList', (req, res) => res.render('pages/wishList'))
+server.get('/addToJournal', (req, res) => res.render('pages/addToJournal'))
+server.get('/addToWishList', (req, res) => res.render('pages/addToWishList'))
+server.get('/createProfile', (req, res) => res.render('pages/createProfile'))
+server.get('/editTrip', (req, res) => res.render('pages/editTrip'))
+server.get('/search', (req, res) => res.render('pages/search'))
 
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .use(bodyParser.urlencoded({ extended: false }))
-  .use(bodyParser.json())
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/home'))
-  .get('/userHomepage', (req, res) => res.render('pages/userHomepage'))
-  .get('/wishList', (req, res) => res.render('pages/wishList'))
-  .get('/addToJournal', (req, res) => res.render('pages/addToJournal'))
-  .get('/addToWishList', (req, res) => res.render('pages/addToWishList'))
-  .get('/createProfile', (req, res) => res.render('pages/createProfile'))
-  .get('/editTrip', (req, res) => res.render('pages/editTrip'))
-  .get('/search', (req, res) => res.render('pages/search'))
- /*
-  .get('/wishList', async (req, res) => {
-    try {
-      const result = await db.query('SELECT location, text_description FROM wish_list;');
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/wishList', results );
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
-*/
 
 server.get('/', (req, res) => {
   res.send('<h1>This is a test application</h1>')

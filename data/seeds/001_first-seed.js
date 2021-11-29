@@ -7,7 +7,7 @@ const profiles = [
   }  
 ];
 
-exports.seed = function (knex) {
+exports.seed = function (knex, Promise) {
   return knex('profiles').del()
   .then(() => {
     return knex('profiles').insert(profiles)
