@@ -9,25 +9,28 @@
     <!-- Nav bar -->
     <%- include ("../partials/navbar.ejs") %>
 
-    <!-- page content -->
-    <!-- section to welcome user to web app and provide brief description -->
     <div>
+      <ul>
+      <% if(messages.success_msg) { %>
+        <li><%= messages.success_msg %></li>
+      <% }  %>
+    </ul>
+    </div>
+    
+
+    <!-- section to welcome user to web app and provide brief description -->
+    <div class="login-form">
         <h1>Welcome to your Adventure Journal</h1>
         <h3>Adventure awaits! Create a profile to start your personalized adventure <br> journal to keep track of previous trips and to plan new ones.</h3>
-        <h3>Already have a profile? Log in below:</h3>
-        <!-- text boxes for username and password -->
-        <!-- *** UPDATE ACTION & METHOD TO POST -->
-        <form action="/userHomepage" method="">
-          <label for="username">Username:*</label>
-          <input type="text" id="username" name="username"><br><br>
-          <label for="pword">Password:*</label>
-          <input type="password" id="pword" name="pword" minlength="8"><br><br>
-          <input type="submit" value="Log in">
-        </form>
+        <h3>Already have a profile? Click the button below to go to the login page:</h3>
+        <a href="/users/login">
+          <input type="submit" value="Login"/>
+        </a>
+        
         <h3>New user? Click the button below to create a profile</h3>
         <!-- button will direct user to create profile page -->
-        <a href="/createProfile">
-            <input type="submit" value="Create new profile"/>
+        <a href="/users/createProfile">
+          <input type="submit" value="Create new profile"/>
         </a>
     </div>
             

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Login page</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" />
+    </head>
+  <body>
+    <!-- Nav bar -->
+    <%- include ("../partials/navbar.ejs") %>
+
+    <br><br><br>
+
+    <div class="errors"> 
+      <ul>
+        <% if(messages.success_msg) { %>
+          <li><%= messages.success_msg %></li>
+        <% } %> 
+      </ul>
+    </div>
+   
+    <div class="errors"> 
+      <ul>
+        <% if(messages.error) { %>
+          <li><%= messages.error %></li>
+        <% } %> 
+      </ul>
+    </div>
+
+
+    <!-- form for user to login -->
+    <div class="login-form">
+        <h3>Log in below:</h3>
+        <!-- text boxes for username and password -->
+        <form action="/users/login" method="POST">
+          <label for="username">Username:*</label>
+          <input type="text" id="username" name="username" required><br><br>
+          <label for="password">Password:*</label>
+          <input type="password" id="password" name="password" minlength="8" required><br><br>
+          <input type="submit" value="Login"/>
+        </form>
+    </div>
+            
+    
+     
+     
+     
+     
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+    
+  </body>
+</html>

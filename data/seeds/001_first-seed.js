@@ -1,9 +1,9 @@
 const profiles = [
   {
-    firstName: 'John', lastName: 'Smith', email: 'testemail@gmail.com', username: 'JohnS13', password: 'testpword1234'
+    firstname: 'John', lastname: 'Smith', email: 'testemail@gmail.com', username: 'JohnS13', password: 'testpword1234'
   },
   {
-    firstName: 'Sara', lastName: 'Young', email: 'syoung@gmail.com', username: 'Syoung', password: 'testpword2021'
+    firstname: 'Sara', lastname: 'Young', email: 'syoung@gmail.com', username: 'Syoung', password: 'testpword2021'
   }  
 ];
 

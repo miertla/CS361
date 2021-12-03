@@ -1,7 +1,19 @@
 require('dotenv').config();
 
-const knex = require('knex');
-const dbEnvironment = process.env.NODE_ENV || 'development';
-const configs = require('../knexfile')[dbEnvironment]
+//const knex = require('knex');
+//const dbEnvironment = process.env.NODE_ENV || 'development';
+//const configs = require('../knexfile')[dbEnvironment];
 
-module.exports = knex(configs)
+const { Pool } = require('pg');
+
+const isProduction = process.env.NODE_ENV == "production";
+
+const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+
+const pool = new Pool({
+	connectionString: isProduction ? process.env.DATABASE_URL : connectionString
+});
+
+module.exports = { pool };
+
+// module.exports = knex(configs)

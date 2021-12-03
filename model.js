@@ -1,10 +1,4 @@
-const { response } = require('express');
-const { Pool } = require('pg');
 const db = require('./data/db-config');
-
-const findAll = () => {
-    return db('profiles')
-}
 
 // GET all user trips by their profileId
 const getUserTripsById = (request, response) => {

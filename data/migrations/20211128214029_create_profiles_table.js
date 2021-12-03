@@ -1,12 +1,12 @@
 exports.up = (knex, Promise) => {
 	// create profiles table
 	return knex.schema.createTable('profiles', function (table) {
-		table.increments('profileId');
-		table.string('firstName', 128).notNullable();
-		table.string('lastName', 128).notNullable();
-		table.string('email', 128).notNullable();
-		table.string('username', 128).notNullable();
-		table.string('password', 128).notNullable();
+		table.increments('profileid').primary();
+		table.string('firstname', 128).notNullable();
+		table.string('lastname', 128).notNullable();
+		table.string('email', 128).unique().notNullable() ;
+		table.string('username', 128).unique().notNullable();
+		table.string('password', 200).notNullable();
 	});
 };
     

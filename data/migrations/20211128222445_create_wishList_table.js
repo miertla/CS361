@@ -1,16 +1,16 @@
 exports.up = (knex, Promise) => {
 	// create wish list table
-	return knex.schema.createTable('wishList', function (table){
-		table.increments('wishListId');
-		table.integer('authorId').unsigned().notNullable();
+	return knex.schema.createTable('wishlist', function (table){
+		table.increments('wishlistid');
+		table.integer('authorid').unsigned().notNullable();
 		table.string('location', 128).notNullable();
-		table.text('locationInfo');
-		table.binary('imageURL');
+		table.text('locationinfo');
+		table.binary('imageurl');
 
-		table.foreign('authorId').references('profileId').inTable('profiles');
+		table.foreign('authorid').references('profileid').inTable('profiles');
 	});
 };
     
 exports.down = (knex, Promise) => {
-	return knex.schema.dropTableIfExists('wishList');
+	return knex.schema.dropTableIfExists('wishlist');
 };

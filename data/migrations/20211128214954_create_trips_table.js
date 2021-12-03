@@ -1,15 +1,15 @@
 exports.up = (knex, Promise) => {
 	// create previous trips table
 	return knex.schema.createTable('trips', function (table){
-		table.increments('tripsId');
-		table.integer('authorId').unsigned().notNullable();
+		table.increments('tripsid');
+		table.integer('authorid').unsigned().notNullable();
 		table.string('location', 128).notNullable();
-		table.date('startDate').notNullable();
-		table.date('endDate').notNullable();
-		table.string('travelBuddies', 128).notNullable();
+		table.date('startdate').notNullable();
+		table.date('enddate').notNullable();
+		table.string('travelbuddies', 128).notNullable();
 		table.binary('images');
 
-		table.foreign('authorId').references('profileId').inTable('profiles');
+		table.foreign('authorid').references('profileid').inTable('profiles');
 	});	
 };
     

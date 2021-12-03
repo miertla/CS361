@@ -12,6 +12,12 @@ p {
   padding-left: 15px;
 }
 
+.errors {
+  text-align: center;
+  font-family: Geneva; 
+  background:transparent;
+}
+
 ul {
   list-style-type: none;
   margin: 0;

@@ -1,9 +1,9 @@
 const trips = [
   {
-    authorId: 1, location: 'Alaska', startDate: '2018-06-02', endDate: '2018-06-09', travelBuddies: 'Sean'
+    authorid: 1, location: 'Alaska', startdate: '2018-06-02', enddate: '2018-06-09', travelbuddies: 'Sean'
   },
   {
-    authorId: 2, location: 'San Diego, California', startDate: '2021-09-30', endDate: '2021-10-03', travelBuddies: 'Jamie, Laurie, and Sean'
+    authorid: 2, location: 'San Diego, California', startdate: '2021-09-30', enddate: '2021-10-03', travelbuddies: 'Jamie, Laurie, and Sean'
   }
 ];
 
