@@ -72,7 +72,7 @@ server.post('/users/createProfile', async (req, res) => {
    } 
   
   if (errors.length > 0) {
-    res.render('pages/createProfile', { errors });
+    res.render('pages/createProfile', { errors, firstname, lastname, email, username, password, password2 });
   }
   else {
     // form validation has passed 
