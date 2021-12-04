@@ -9,13 +9,11 @@
     <!-- Nav bar -->
     <%- include ("../partials/navbar.ejs") %>
     
-    <!-- page content -->
-    <!-- section to explain to user how to use this web page -->
     <div>
         <h1>Welcome to the search page</h1>
         <h3>This page allows you to type in a location and search to see if<br> this location is already in your adventure journal.<br><br>Type in the location you would like to search for below:</h3>
         <!-- text boxes for location -->
-        <form action="/users/search" method="get">
+        <form action="/users/search" method="GET">
           <label for="location">Location:</label>
           <input type="text" id="location" name="location"><br><br>
           <input type="submit" value="Search">
@@ -24,14 +22,9 @@
             
     
      
+  
      
      
-     
-<script>
-$(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();
-});
-</script>
     
   </body>
 </html>

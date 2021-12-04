@@ -9,15 +9,11 @@
     <!-- Nav bar -->
     <%- include ("../partials/navbar.ejs") %>
     
-    <!-- page content -->
-    <!-- section to display current trips in users Adventure Journal -->
     <div>
         <br>
         <h1>Welcome to your Adventure Journal <%= username %></h1>
         <h4>All trips currently in your journal are displayed below:</h4>
         <br>
-        <!-- Table to display all trips currently in DB -->
-        <!-- *** FAKE DATA CURRENTLY *** -->
         <table>
         <thead>
           <tr>
@@ -47,8 +43,24 @@
        
         </table>
      
+    
      
-     
+        <% /* %>
+        START COMMENT - FIX CODE BELOW:
+                <% if (results.length > 0) { %>
+                    <tr class="wish-list-table">
+                        <% results.forEach(function(wish_list)) { %>
+                              <td><%= wish_list.location %></td>
+                              <td><%= wish_list.paragraph1 %></td>
+                            </tr>
+                        <% } %>
+                </table>
+                <% } else { %>
+                        <h3>No locations in wish list yet</h3>
+                    <% }; %>
+        END COMMENT
+        <% */ %>
+
      
     </div>
             
@@ -56,14 +68,6 @@
      
      
      
-     
-<script>
-$(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();
-});
-
-
-</script>
     
   </body>
 </html>

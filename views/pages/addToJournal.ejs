@@ -6,18 +6,16 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" />
     </head>
   <body>
-    <!-- Nav bar -->
+    <!-- Include nav bar -->
     <%- include ("../partials/navbar.ejs") %>
       
     <!-- page content -->
-    <!-- section to explain to user how to add a trip to their journal -->
     <div>
         <br><br>
         <h2>This page allows you to add a previous trip you have taken to your Adventure Journal.</h2>
         <h3>Please complete all of the fields below (pictures are optional):</h3>
         <br><br>
         <!-- form to add a trip -->
-        <!-- *** UPDATE ACTION -->
         <form action="/users/addToJournal" method="POST">
           <label for="location">Location of trip:</label>
           <input type="text" id="location" name="location"><br><br>
@@ -38,11 +36,6 @@
      
      
      
-<script>
-$(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();
-});
-</script>
     
   </body>
 </html>

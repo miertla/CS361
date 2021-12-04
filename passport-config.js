@@ -9,7 +9,7 @@ function initialize(passport){
 			[username], 
 			(err, results) => {
 				if (err){
-					throw error;
+					throw err;
 					}
 
 					console.log(results.rows);

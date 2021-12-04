@@ -39,7 +39,7 @@ server.get('/', (req, res) => res.render('pages/home'));
 server.get('/users/login', checkAuthenticated, (req, res) => res.render('pages/login'));
 server.get('/users/createProfile', checkAuthenticated, (req, res) => res.render('pages/createProfile'));
 server.get('/users/userHomepage', checkNotAuthenticated, (req, res) => {
-  res.render('pages/userHomepage', { username: req.user.username })});
+  res.render('pages/userHomepage', { username: req.user.username, profileid: req.user.profileid })});
 server.get('/users/wishList', checkNotAuthenticated, (req, res) => res.render('pages/wishList'));
 server.get('/users/addToJournal',  checkNotAuthenticated, (req, res) => res.render('pages/addToJournal'));
 server.get('/users/addToWishList',  checkNotAuthenticated, (req, res) => res.render('pages/addToWishList'));
@@ -81,7 +81,7 @@ server.post('/users/createProfile', async (req, res) => {
 
     pool.query(
       `SELECT * FROM profiles 
-      WHERE username = $1 AND email = $2`, 
+      WHERE username = $1 OR email = $2`, 
       [username, email], 
       (err, results) => {
         if (err) {
@@ -103,7 +103,7 @@ server.post('/users/createProfile', async (req, res) => {
                   throw err;
                 }
                 console.log(results.rows);
-                req.flash('success_msg', "You are now registered. Please log in.");
+                req.flash('success_msg', "You are now successfully registered. Please log in.");
                 res.redirect('/users/login');
               }
           );
@@ -113,7 +113,6 @@ server.post('/users/createProfile', async (req, res) => {
   }
 });
 
-
 server.post('/users/login', passport.authenticate('local', {
   successRedirect: '/users/userHomepage',
   failureRedirect: '/users/login',
@@ -121,6 +120,7 @@ server.post('/users/login', passport.authenticate('local', {
   })
 );
 
+// functions to check to make sure user is logged in or not (using functions from passport)
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return res.redirect("/users/userHomepage");
